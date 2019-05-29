@@ -10,8 +10,8 @@ export default {
     },
     logo: {
       src:
-        'https://raw.githubusercontent.com/svencowart/create-big-bang/master/assets/create-big-bang.compressed.png',
-      width: 200,
+        'https://raw.githubusercontent.com/svencowart/create-big-bang/master/docs/assets/create-big-bang-logo.compressed.png',
+      width: 228,
     },
   },
 };
