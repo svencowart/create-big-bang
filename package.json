@@ -1,0 +1,86 @@
+{
+  "name": "create-big-bang",
+  "version": "0.1.0",
+  "description": "A lightweight Javascript build setup tool with minimal opinions.",
+  "main": "lib/create-big-bang.js",
+  "module": "es/create-big-bang.js",
+  "sideEffects": false,
+  "files": [
+    "es",
+    "lib",
+    "umd"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "prebuild": "rimraf es && rimraf lib && rimraf umd",
+    "build": "rollup -c",
+    "lint": "eslint src/**",
+    "lint:fix": "pretty-quick --staged && eslint --fix src/**",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:staged": "jest --findRelatedTests",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@types/jest": "^24.0.13",
+    "babel-jest": "^24.8.0",
+    "docz": "^1.2.0",
+    "docz-theme-default": "^1.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.3.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.11.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.12.4",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-terser": "^5.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "npm run test:staged",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svencowart/create-big-bang.git"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/svencowart/create-big-bang#readme",
+  "bugs": {
+    "url": "https://github.com/svencowart/create-big-bang/issues"
+  },
+  "author": {
+    "name": "Sven Cowart",
+    "url": "https://github.com/svencowart"
+  },
+  "keywords": [
+    "create-big-bang",
+    "create",
+    "big",
+    "bang"
+  ]
+}
